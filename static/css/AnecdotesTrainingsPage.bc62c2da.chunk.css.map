@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/views/AnecdotesTrainingsPage/AnecdotesTrainingsPage.module.css"],"names":[],"mappings":"AAAA,sDACE,YACF","file":"AnecdotesTrainingsPage.bc62c2da.chunk.css","sourcesContent":[".AnecdotesTrainingsPage {\n  padding: 20px;\n}\n"]}
