@@ -1,0 +1,2 @@
+(this["webpackJsonpenglish-training-app"]=this["webpackJsonpenglish-training-app"]||[]).push([[0],{50:function(n,e,i){n.exports={AnecdotesTrainingsPage:"AnecdotesTrainingsPage_AnecdotesTrainingsPage__3Q7At"}},52:function(n,e,i){"use strict";i.r(e),i.d(e,"default",(function(){return c}));var s=i(50),t=i.n(s),a=i(1);function c(){return Object(a.jsx)("div",{className:t.a.AnecdotesTrainingsPage,children:Object(a.jsx)("h2",{children:"AnecdotesTrainingsPage"})})}}}]);
+//# sourceMappingURL=AnecdotesTrainingsPage.acc1655f.chunk.js.map
