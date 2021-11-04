@@ -5,6 +5,7 @@ import Loader from 'react-loader-spinner';
 import NotFoundView from './views/NotFoundView/NotFoundView';
 import { Route, Switch } from 'react-router-dom';
 import 'modern-normalize/modern-normalize.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const HomePage = lazy(() =>
   import('./views/HomePage/HomePage.js' /* webpackChunkName:"HomePage" */),

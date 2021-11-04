@@ -1,3 +1,13 @@
 .AnecdotesTrainingsPage {
   padding: 20px;
 }
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list__item {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}

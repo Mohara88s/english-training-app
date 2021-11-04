@@ -15,7 +15,7 @@ export default function HomePage() {
         }}
       >
         {' '}
-        Anecdotes training
+        Anecdotes trainings
       </Link>
     </div>
   );

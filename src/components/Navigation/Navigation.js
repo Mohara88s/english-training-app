@@ -18,7 +18,7 @@ const Navigation = () => (
       className={styles.link}
       activeClassName={styles.activeLink}
     >
-      Anecdotes training
+      Anecdotes trainings
     </NavLink>
   </nav>
 );
