@@ -1,5 +1,6 @@
 .AnecdotesTrainingsPage {
   padding: 20px;
+  max-width: 900px;
 }
 .list {
   list-style: none;
@@ -10,4 +11,8 @@
 .list__item {
   margin-right: 10px;
   margin-bottom: 10px;
+}
+p {
+  font-size: 1rem;
+  font-weight: 500;
 }
