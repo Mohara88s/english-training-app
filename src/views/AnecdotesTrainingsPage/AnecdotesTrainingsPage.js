@@ -17,17 +17,16 @@ export default function AnecdotesTrainingsPage() {
   const [actualId, setActualId] = useState(0);
   const [losts, setLosts] = useState(0);
   const [attempts, setAttempts] = useState(0);
+  const [resolved, setResolved] = useState(false);
 
   const onClickButton = e => {
     const buttonValue = e.currentTarget.getAttribute('value');
     const id = Number.parseInt(e.currentTarget.getAttribute('data-id'));
 
     if (buttonValue === buttonsArray[actualId]) {
-      mixedArray.splice(id, 1);
-      resolvedArray.push(buttonValue);
-      setActualId(prevState => prevState + 1);
+      onRightButtonClick(id, buttonValue);
     } else {
-      setLosts(prevState => prevState + 1);
+      onWrongButtonClick(e.currentTarget);
     }
     setAttempts(prevState => prevState + 1);
     if (actualId >= buttonsArray.length - 1) {
@@ -35,8 +34,24 @@ export default function AnecdotesTrainingsPage() {
     }
   };
 
+  const onWrongButtonClick = button => {
+    setLosts(prevState => prevState + 1);
+    button.classList.remove('btn-primary');
+    button.classList.add('btn-danger');
+    setTimeout(() => {
+      button.classList.remove('btn-danger');
+      button.classList.add('btn-primary');
+    }, 500);
+  };
+
+  const onRightButtonClick = (id, value) => {
+    mixedArray.splice(id, 1);
+    resolvedArray.push(value);
+    setActualId(prevState => prevState + 1);
+  };
+
   const onPositiveTrainingResult = () => {
-    console.log('true');
+    setResolved(true);
   };
 
   return (
@@ -51,6 +66,7 @@ export default function AnecdotesTrainingsPage() {
       <p>{anecdot.english}</p>
 
       <h3>Anecdot in russian</h3>
+      {resolved && <h3 className={styles.congratulations}>Congratilations</h3>}
       <ul className={styles.list}>
         {mixedArray.map((elem, id) => (
           <li key={id} className={styles.list__item}>

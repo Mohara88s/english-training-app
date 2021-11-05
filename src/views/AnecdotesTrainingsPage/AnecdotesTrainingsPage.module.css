@@ -2,6 +2,9 @@
   padding: 20px;
   max-width: 900px;
 }
+.congratulations {
+  color: red;
+}
 .list {
   list-style: none;
   display: flex;
