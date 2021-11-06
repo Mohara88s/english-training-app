@@ -1,0 +1,59 @@
+p {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+h2,
+h3,
+h4 {
+  text-align: center;
+}
+
+.anecdotFealdsList {
+  list-style: none;
+  padding-left: 0;
+}
+.anecdotFealdsList__item {
+  min-height: 250px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 2%;
+}
+@media screen and (min-width: 720px) {
+  .anecdotFealdsList {
+    display: flex;
+  }
+  .anecdotFealdsList__item {
+    width: calc(100% / 2 - 20px);
+    min-height: 500px;
+  }
+}
+.anecdotFealdHeader {
+  border-bottom: 1px solid;
+  padding-bottom: 5px;
+}
+
+.listTags {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding-left: 0;
+}
+
+.listTags__item {
+  margin-bottom: 10px;
+}
+
+.congratulations {
+  color: red;
+  text-align: center;
+}
+.statistics {
+  color: blue;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}

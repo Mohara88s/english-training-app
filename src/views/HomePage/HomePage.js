@@ -7,7 +7,7 @@ export default function HomePage() {
 
   return (
     <div className={styles.HomePage}>
-      <h2>Trainings</h2>
+      <h2>Trainings:</h2>
       <Link
         to={{
           pathname: `${url}anecdotes-trainings/`,
@@ -15,7 +15,7 @@ export default function HomePage() {
         }}
       >
         {' '}
-        Anecdotes trainings
+        <h3>Anecdotes trainings</h3>
       </Link>
     </div>
   );
