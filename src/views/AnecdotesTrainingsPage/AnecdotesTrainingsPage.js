@@ -24,7 +24,7 @@ export default function AnecdotesTrainingsPage() {
     const id = Number.parseInt(e.currentTarget.getAttribute('data-id'));
 
     if (buttonValue === buttonsArray[actualId]) {
-      onRightButtonClick(id, buttonValue);
+      onRightButtonClick(e.currentTarget, id, buttonValue);
     } else {
       onWrongButtonClick(e.currentTarget);
     }
@@ -44,10 +44,16 @@ export default function AnecdotesTrainingsPage() {
     }, 500);
   };
 
-  const onRightButtonClick = (id, value) => {
-    mixedArray.splice(id, 1);
-    resolvedArray.push(value);
-    setActualId(prevState => prevState + 1);
+  const onRightButtonClick = (button, id, value) => {
+    button.classList.remove('btn-primary');
+    button.classList.add('btn-success');
+    setTimeout(() => {
+      button.classList.remove('btn-success');
+      button.classList.add('btn-primary');
+      mixedArray.splice(id, 1);
+      resolvedArray.push(value);
+      setActualId(prevState => prevState + 1);
+    }, 500);
   };
 
   const onPositiveTrainingResult = () => {
