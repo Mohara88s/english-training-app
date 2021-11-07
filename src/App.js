@@ -4,8 +4,9 @@ import Loader from 'react-loader-spinner';
 
 import NotFoundView from './views/NotFoundView/NotFoundView';
 import { Route, Switch } from 'react-router-dom';
-import 'modern-normalize/modern-normalize.css';
+import '../node_modules/modern-normalize';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styles from './App.module.css';
 
 const HomePage = lazy(() =>
   import('./views/HomePage/HomePage.js' /* webpackChunkName:"HomePage" */),
@@ -18,12 +19,18 @@ const AnecdotesTrainingsPage = lazy(() =>
 
 export default function App() {
   return (
-    <>
+    <div className={styles.App}>
       <AppBar />
 
       <Suspense
         fallback={
-          <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
+          <Loader
+            type="ThreeDots"
+            color="#00BFFF"
+            height={80}
+            width={80}
+            className={styles.loader}
+          />
         }
       >
         <Switch>
@@ -40,6 +47,6 @@ export default function App() {
           </Route>
         </Switch>
       </Suspense>
-    </>
+    </div>
   );
 }

@@ -8,15 +8,18 @@ export default function HomePage() {
   return (
     <div className={styles.HomePage}>
       <h2>Trainings:</h2>
-      <Link
-        to={{
-          pathname: `${url}anecdotes-trainings/`,
-          state: { from: location },
-        }}
-      >
-        {' '}
-        <h3>Anecdotes trainings</h3>
-      </Link>
+      <ul>
+        <li>
+          <Link
+            to={{
+              pathname: `${url}anecdotes-trainings/`,
+              state: { from: location },
+            }}
+          >
+            <h3>Anecdotes trainings</h3>
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 }

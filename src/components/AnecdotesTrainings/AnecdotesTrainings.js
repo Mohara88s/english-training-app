@@ -1,46 +1,47 @@
 import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import styles from './AnecdotesTrainings.module.css';
-import data from '../../database/anecdotes.json';
 // import { throttle } from 'lodash';
 
-const anecdotesList = [...data];
-
-export default function AnecdotesTrainings() {
+export default function AnecdotesTrainings({ anecdotesList }) {
   const [actualId, setActualId] = useState(0);
   const [losts, setLosts] = useState(0);
   const [attempts, setAttempts] = useState(0);
   const [resolved, setResolved] = useState(false);
   const [anecdotId, setAnecdotId] = useState(0);
-  const [buttonsArray, setButtonsArray] = useState([]);
+  const [originalArray, setOriginalArray] = useState([]);
   const [mixedArray, setMixedArray] = useState([]);
   const [resolvedArray, setResolvedArray] = useState([]);
 
   useEffect(() => {
-    setButtonsArray([
-      ...anecdotesList[anecdotId].russian.split('.').filter(e => e.length),
-    ]);
-  }, [anecdotId]);
+    if (anecdotesList.length) {
+      setOriginalArray([
+        ...anecdotesList[anecdotId].translation
+          .match(/[^.?!]+[.!?]+[\])'"`’”]*|.+/g)
+          .map(e => (e[0] === ' ' ? e.slice(1) : e)),
+      ]);
+    }
+  }, [anecdotId, anecdotesList]);
 
   useEffect(() => {
     setMixedArray([
-      ...[...buttonsArray].sort(() => {
+      ...[...originalArray].sort(() => {
         return 0.5 - Math.random();
       }),
     ]);
-  }, [buttonsArray]);
+  }, [originalArray]);
 
   const onClickButton = e => {
     const buttonValue = e.currentTarget.getAttribute('value');
     const id = Number.parseInt(e.currentTarget.getAttribute('data-id'));
 
-    if (buttonValue === buttonsArray[actualId]) {
+    if (buttonValue === originalArray[actualId]) {
       onRightButtonClick(e.currentTarget, id, buttonValue);
     } else {
       onWrongButtonClick(e.currentTarget);
     }
     setAttempts(prevState => prevState + 1);
-    if (actualId >= buttonsArray.length - 1) {
+    if (actualId >= originalArray.length - 1) {
       onPositiveTrainingResult();
     }
   };
@@ -88,56 +89,64 @@ export default function AnecdotesTrainings() {
   return (
     <div className={styles.AnecdotesTrainings}>
       <h2>Anecdotes trainings</h2>
+      {!anecdotesList.length && (
+        <h3 className={styles.warning}>
+          Anecdotes are missing from the database
+        </h3>
+      )}
+      {anecdotesList.length && (
+        <div>
+          <h3>Anecdot in original language</h3>
+          <p>{anecdotesList[anecdotId].original}</p>
 
-      <h3>Anecdot in english</h3>
-      <p>{anecdotesList[anecdotId].english}</p>
-
-      <h3>Anecdot in russian</h3>
-      <ul className={styles.anecdotFealdsList}>
-        <li className={styles.anecdotFealdsList__item}>
-          <h4 className={styles.anecdotFealdHeader}>Unresolved anecdot</h4>
-          <ul className={styles.listTags}>
-            {mixedArray.map((elem, id) => (
-              <li key={id} className={styles.listTags__item}>
-                <Button
-                  variant="primary"
-                  data-id={id}
-                  // onClick={throttle(onClickButton, 500)}
-                  onClick={onClickButton}
-                  value={elem}
-                >
-                  {elem}
-                </Button>
-              </li>
-            ))}
+          <h3>Anecdote in translation language</h3>
+          <ul className={styles.anecdotFealdsList}>
+            <li className={styles.anecdotFealdsList__item}>
+              <h4 className={styles.anecdotFealdHeader}>Unresolved anecdot</h4>
+              <ul className={styles.listTags}>
+                {mixedArray.map((elem, id) => (
+                  <li key={id} className={styles.listTags__item}>
+                    <Button
+                      variant="primary"
+                      data-id={id}
+                      // onClick={throttle(onClickButton, 500)}
+                      onClick={onClickButton}
+                      value={elem}
+                    >
+                      {elem}
+                    </Button>
+                  </li>
+                ))}
+              </ul>
+              {resolved && (
+                <div className={styles.congratulations}>
+                  <h3>Congratulations, you're great!!!</h3>
+                  <p>Are you ready for a new test?</p>
+                  <p>Then press NEXT!</p>
+                  <Button variant="warning" onClick={onClickButtonNext}>
+                    NEXT
+                  </Button>
+                  <div className={styles.statistics}>
+                    <h5>Сurrent statistics:</h5>
+                    <p>Attempts: {attempts}</p>
+                    <p>Losts: {losts}</p>
+                  </div>
+                </div>
+              )}
+            </li>
+            <li className={styles.anecdotFealdsList__item}>
+              <h4 className={styles.anecdotFealdHeader}>Resolved anecdot</h4>
+              <ul className={styles.listTags}>
+                {resolvedArray.map((elem, id) => (
+                  <li key={id} className={styles.listTags__item}>
+                    <Button variant="primary">{elem}</Button>
+                  </li>
+                ))}
+              </ul>
+            </li>
           </ul>
-          {resolved && (
-            <div className={styles.congratulations}>
-              <h3>Congratulations, you're great!!!</h3>
-              <p>Are you ready for a new test?</p>
-              <p>Then press NEXT!</p>
-              <Button variant="warning" onClick={onClickButtonNext}>
-                NEXT
-              </Button>
-              <div className={styles.statistics}>
-                <h5>Сurrent statistics:</h5>
-                <p>Attempts: {attempts}</p>
-                <p>Losts: {losts}</p>
-              </div>
-            </div>
-          )}
-        </li>
-        <li className={styles.anecdotFealdsList__item}>
-          <h4 className={styles.anecdotFealdHeader}>Resolved anecdot</h4>
-          <ul className={styles.listTags}>
-            {resolvedArray.map((elem, id) => (
-              <li key={id} className={styles.listTags__item}>
-                <Button variant="primary">{elem}</Button>
-              </li>
-            ))}
-          </ul>
-        </li>
-      </ul>
+        </div>
+      )}
     </div>
   );
 }
