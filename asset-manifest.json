@@ -1,32 +1,32 @@
 {
   "files": {
-    "AnecdotesTrainingsPage.css": "/static/css/AnecdotesTrainingsPage.97e2f272.chunk.css",
-    "AnecdotesTrainingsPage.js": "/static/js/AnecdotesTrainingsPage.dad925c8.chunk.js",
-    "AnecdotesTrainingsPage.js.map": "/static/js/AnecdotesTrainingsPage.dad925c8.chunk.js.map",
+    "AnecdotesTrainingsPage.css": "/static/css/AnecdotesTrainingsPage.5dac75a6.chunk.css",
+    "AnecdotesTrainingsPage.js": "/static/js/AnecdotesTrainingsPage.b0feeffc.chunk.js",
+    "AnecdotesTrainingsPage.js.map": "/static/js/AnecdotesTrainingsPage.b0feeffc.chunk.js.map",
     "HomePage.css": "/static/css/HomePage.a82b833c.chunk.css",
-    "HomePage.js": "/static/js/HomePage.7d5afd19.chunk.js",
-    "HomePage.js.map": "/static/js/HomePage.7d5afd19.chunk.js.map",
-    "main.css": "/static/css/main.e5fc22ea.chunk.css",
-    "main.js": "/static/js/main.d0b9edf2.chunk.js",
-    "main.js.map": "/static/js/main.d0b9edf2.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.c8a6fc22.js",
-    "runtime-main.js.map": "/static/js/runtime-main.c8a6fc22.js.map",
+    "HomePage.js": "/static/js/HomePage.b585bf74.chunk.js",
+    "HomePage.js.map": "/static/js/HomePage.b585bf74.chunk.js.map",
+    "main.css": "/static/css/main.d1d74753.chunk.css",
+    "main.js": "/static/js/main.d80d55e8.chunk.js",
+    "main.js.map": "/static/js/main.d80d55e8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8d01a018.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8d01a018.js.map",
     "static/css/4.f1d9fcd9.chunk.css": "/static/css/4.f1d9fcd9.chunk.css",
-    "static/js/4.932dc6a2.chunk.js": "/static/js/4.932dc6a2.chunk.js",
-    "static/js/4.932dc6a2.chunk.js.map": "/static/js/4.932dc6a2.chunk.js.map",
+    "static/js/4.32696bdb.chunk.js": "/static/js/4.32696bdb.chunk.js",
+    "static/js/4.32696bdb.chunk.js.map": "/static/js/4.32696bdb.chunk.js.map",
     "index.html": "/index.html",
     "static/css/4.f1d9fcd9.chunk.css.map": "/static/css/4.f1d9fcd9.chunk.css.map",
-    "static/css/AnecdotesTrainingsPage.97e2f272.chunk.css.map": "/static/css/AnecdotesTrainingsPage.97e2f272.chunk.css.map",
+    "static/css/AnecdotesTrainingsPage.5dac75a6.chunk.css.map": "/static/css/AnecdotesTrainingsPage.5dac75a6.chunk.css.map",
     "static/css/HomePage.a82b833c.chunk.css.map": "/static/css/HomePage.a82b833c.chunk.css.map",
-    "static/css/main.e5fc22ea.chunk.css.map": "/static/css/main.e5fc22ea.chunk.css.map",
-    "static/js/4.932dc6a2.chunk.js.LICENSE.txt": "/static/js/4.932dc6a2.chunk.js.LICENSE.txt",
-    "static/js/AnecdotesTrainingsPage.dad925c8.chunk.js.LICENSE.txt": "/static/js/AnecdotesTrainingsPage.dad925c8.chunk.js.LICENSE.txt"
+    "static/css/main.d1d74753.chunk.css.map": "/static/css/main.d1d74753.chunk.css.map",
+    "static/js/4.32696bdb.chunk.js.LICENSE.txt": "/static/js/4.32696bdb.chunk.js.LICENSE.txt",
+    "static/js/AnecdotesTrainingsPage.b0feeffc.chunk.js.LICENSE.txt": "/static/js/AnecdotesTrainingsPage.b0feeffc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c8a6fc22.js",
+    "static/js/runtime-main.8d01a018.js",
     "static/css/4.f1d9fcd9.chunk.css",
-    "static/js/4.932dc6a2.chunk.js",
-    "static/css/main.e5fc22ea.chunk.css",
-    "static/js/main.d0b9edf2.chunk.js"
+    "static/js/4.32696bdb.chunk.js",
+    "static/css/main.d1d74753.chunk.css",
+    "static/js/main.d80d55e8.chunk.js"
   ]
 }
