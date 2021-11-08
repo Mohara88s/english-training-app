@@ -45,14 +45,14 @@ export default function HomePage() {
         <li className={styles.LinksList__item}>
           <Link
             to={{
-              pathname: `${url}anecdotes-trainings/`,
+              pathname: `${url}plug/`,
               state: { from: location },
             }}
           >
             <h3 className={styles.LinksList__name}>PLUG trainings</h3>
             <img
               src={plug__trainingsImg}
-              alt="Anecdotes trainings"
+              alt="PLUG trainings"
               className={styles.LinksList__picture}
             />
           </Link>
@@ -60,14 +60,14 @@ export default function HomePage() {
         <li className={styles.LinksList__item}>
           <Link
             to={{
-              pathname: `${url}anecdotes-trainings/`,
+              pathname: `${url}plug/`,
               state: { from: location },
             }}
           >
             <h3 className={styles.LinksList__name}>PLUG trainings</h3>
             <img
               src={plug__trainingsImg}
-              alt="Anecdotes trainings"
+              alt="PLUG trainings"
               className={styles.LinksList__picture}
             />
           </Link>
