@@ -2,6 +2,7 @@ import { Link, useRouteMatch, useLocation } from 'react-router-dom';
 import styles from './HomePage.module.css';
 import anecdotTrainingsImg from '../../public/pictures/anecdot_trainings.jpg';
 import sentencesTrainingsImg from '../../public/pictures/sentences_trainings.jpg';
+import transcription__trainingsImg from '../../public/pictures/transcription__trainings.jpg';
 import plug__trainingsImg from '../../public/pictures/plug__trainings.jpg';
 
 export default function HomePage() {
@@ -45,14 +46,14 @@ export default function HomePage() {
         <li className={styles.LinksList__item}>
           <Link
             to={{
-              pathname: `${url}plug/`,
+              pathname: `${url}transcription-trainings/`,
               state: { from: location },
             }}
           >
-            <h3 className={styles.LinksList__name}>PLUG trainings</h3>
+            <h3 className={styles.LinksList__name}>Transcription trainings</h3>
             <img
-              src={plug__trainingsImg}
-              alt="PLUG trainings"
+              src={transcription__trainingsImg}
+              alt="Transcription trainings"
               className={styles.LinksList__picture}
             />
           </Link>

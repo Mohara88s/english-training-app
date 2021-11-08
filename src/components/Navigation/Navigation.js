@@ -29,6 +29,15 @@ const Navigation = () => (
     >
       Sentences trainings
     </NavLink>
+
+    <NavLink
+      exact
+      to="/transcription-trainings"
+      className={styles.link}
+      activeClassName={styles.activeLink}
+    >
+      Transcription trainings
+    </NavLink>
   </nav>
 );
 export default Navigation;

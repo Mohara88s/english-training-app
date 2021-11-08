@@ -22,6 +22,12 @@ const SentencesTrainingsPage = lazy(
       './views/SentencesTrainingsPage/SentencesTrainingsPage.js'
     ) /* webpackChunkName:"SentencesTrainingsPage" */,
 );
+const TranscriptionTrainingsPage = lazy(
+  () =>
+    import(
+      './views/TranscriptionTrainingsPage/TranscriptionTrainingsPage.js'
+    ) /* webpackChunkName:"TranscriptionTrainingsPage" */,
+);
 
 export default function App() {
   return (
@@ -50,6 +56,10 @@ export default function App() {
 
           <Route exact path="/sentences-trainings">
             <SentencesTrainingsPage />
+          </Route>
+
+          <Route exact path="/transcription-trainings">
+            <TranscriptionTrainingsPage />
           </Route>
 
           <Route>
