@@ -16,6 +16,12 @@ const AnecdotesTrainingsPage = lazy(() =>
     './views/AnecdotesTrainingsPage/AnecdotesTrainingsPage.js' /* webpackChunkName:"AnecdotesTrainingsPage" */
   ),
 );
+const SentencesTrainingsPage = lazy(
+  () =>
+    import(
+      './views/SentencesTrainingsPage/SentencesTrainingsPage.js'
+    ) /* webpackChunkName:"SentencesTrainingsPage" */,
+);
 
 export default function App() {
   return (
@@ -40,6 +46,10 @@ export default function App() {
 
           <Route exact path="/anecdotes-trainings">
             <AnecdotesTrainingsPage />
+          </Route>
+
+          <Route exact path="/sentences-trainings">
+            <SentencesTrainingsPage />
           </Route>
 
           <Route>

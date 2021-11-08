@@ -1,0 +1,51 @@
+.sentenceFealdsList {
+  padding-left: 0;
+}
+.sentenceFealdsList__item {
+  min-height: 250px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 2%;
+}
+@media screen and (min-width: 720px) {
+  .sentenceFealdsList {
+    display: flex;
+  }
+  .sentenceFealdsList__item {
+    width: calc(100% / 2 - 20px);
+    min-height: 500px;
+  }
+}
+.sentenceFealdHeader {
+  border-bottom: 1px solid;
+  padding-bottom: 5px;
+}
+
+.listTags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  padding-left: 0;
+}
+
+.listTags__item {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.congratulations {
+  color: red;
+  text-align: center;
+}
+.statistics {
+  color: blue;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+.warning {
+  color: red;
+}

@@ -1,28 +1,28 @@
 import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
-import styles from './AnecdotesTrainings.module.css';
+import styles from './SentencesTrainings.module.css';
 import PropTypes from 'prop-types';
 // import { throttle } from 'lodash';
 
-export default function AnecdotesTrainings({ anecdotesList }) {
+export default function SentencesTrainings({ sentencesList }) {
   const [actualId, setActualId] = useState(0);
   const [losts, setLosts] = useState(0);
   const [attempts, setAttempts] = useState(0);
   const [resolved, setResolved] = useState(false);
-  const [anecdotId, setAnecdotId] = useState(0);
+  const [sentenceId, setSentenceId] = useState(0);
   const [originalArray, setOriginalArray] = useState([]);
   const [mixedArray, setMixedArray] = useState([]);
   const [resolvedArray, setResolvedArray] = useState([]);
 
   useEffect(() => {
-    if (anecdotesList[anecdotId].translation) {
+    if (sentencesList[sentenceId].translation) {
       setOriginalArray([
-        ...anecdotesList[anecdotId].translation
-          .match(/[^.?!]+[.!?]+[\])'"`’”]*|.+/g)
+        ...sentencesList[sentenceId].translation
+          .split(' ')
           .map(e => (e[0] === ' ' ? e.slice(1) : e)),
       ]);
     }
-  }, [anecdotId, anecdotesList]);
+  }, [sentenceId, sentencesList]);
 
   useEffect(() => {
     setMixedArray([
@@ -75,10 +75,10 @@ export default function AnecdotesTrainings({ anecdotesList }) {
     }, 300);
   };
   const onClickButtonNext = () => {
-    if (anecdotId >= anecdotesList.length - 1) {
-      setAnecdotId(0);
+    if (sentenceId >= sentencesList.length - 1) {
+      setSentenceId(0);
     } else {
-      setAnecdotId(prevState => prevState + 1);
+      setSentenceId(prevState => prevState + 1);
     }
     setActualId(0);
     setLosts(0);
@@ -88,18 +88,18 @@ export default function AnecdotesTrainings({ anecdotesList }) {
   };
 
   return (
-    <div className={styles.AnecdotesTrainings}>
-      <h3>Anecdot in original language</h3>
-      {!anecdotesList[anecdotId].original && (
+    <div className={styles.SentencesTrainings}>
+      <h3>Sentence in original language</h3>
+      {!sentencesList[sentenceId].original && (
         <h3 className={styles.warning}>no original available</h3>
       )}
-      <p>{anecdotesList[anecdotId].original}</p>
+      <p>{sentencesList[sentenceId].original}</p>
 
-      <h3>Anecdot in translation language</h3>
-      <ul className={styles.anecdotFealdsList}>
-        <li className={styles.anecdotFealdsList__item}>
-          <h4 className={styles.anecdotFealdHeader}>Unresolved anecdot</h4>
-          {!anecdotesList[anecdotId].translation && (
+      <h3>Sentence in translation language</h3>
+      <ul className={styles.sentenceFealdsList}>
+        <li className={styles.sentenceFealdsList__item}>
+          <h4 className={styles.sentenceFealdHeader}>Unresolved sentence</h4>
+          {!sentencesList[sentenceId].translation && (
             <h3 className={styles.warning}>no translation available</h3>
           )}
           <ul className={styles.listTags}>
@@ -133,8 +133,8 @@ export default function AnecdotesTrainings({ anecdotesList }) {
             </div>
           )}
         </li>
-        <li className={styles.anecdotFealdsList__item}>
-          <h4 className={styles.anecdotFealdHeader}>Resolved anecdot</h4>
+        <li className={styles.sentenceFealdsList__item}>
+          <h4 className={styles.sentenceFealdHeader}>Resolved sentence </h4>
           <ul className={styles.listTags}>
             {resolvedArray.map((elem, id) => (
               <li key={id} className={styles.listTags__item}>
@@ -148,8 +148,8 @@ export default function AnecdotesTrainings({ anecdotesList }) {
   );
 }
 
-AnecdotesTrainings.propTypes = {
-  anecdotesList: PropTypes.arrayOf(
+SentencesTrainings.propTypes = {
+  sentencesList: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       original: PropTypes.string.isRequired,

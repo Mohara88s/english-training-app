@@ -20,6 +20,15 @@ const Navigation = () => (
     >
       Anecdotes trainings
     </NavLink>
+
+    <NavLink
+      exact
+      to="/sentences-trainings"
+      className={styles.link}
+      activeClassName={styles.activeLink}
+    >
+      Sentences trainings
+    </NavLink>
   </nav>
 );
 export default Navigation;
