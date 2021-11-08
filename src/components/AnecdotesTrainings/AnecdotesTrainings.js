@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import styles from './AnecdotesTrainings.module.css';
+import PropTypes from 'prop-types';
 // import { throttle } from 'lodash';
 
 export default function AnecdotesTrainings({ anecdotesList }) {
@@ -14,7 +15,7 @@ export default function AnecdotesTrainings({ anecdotesList }) {
   const [resolvedArray, setResolvedArray] = useState([]);
 
   useEffect(() => {
-    if (anecdotesList.length) {
+    if (anecdotesList[anecdotId].translation) {
       setOriginalArray([
         ...anecdotesList[anecdotId].translation
           .match(/[^.?!]+[.!?]+[\])'"`’”]*|.+/g)
@@ -88,65 +89,71 @@ export default function AnecdotesTrainings({ anecdotesList }) {
 
   return (
     <div className={styles.AnecdotesTrainings}>
-      <h2>Anecdotes trainings</h2>
-      {!anecdotesList.length && (
-        <h3 className={styles.warning}>
-          Anecdotes are missing from the database
-        </h3>
+      <h3>Anecdot in original language</h3>
+      {!anecdotesList[anecdotId].original && (
+        <h3 className={styles.warning}>no original available</h3>
       )}
-      {anecdotesList.length && (
-        <div>
-          <h3>Anecdot in original language</h3>
-          <p>{anecdotesList[anecdotId].original}</p>
+      <p>{anecdotesList[anecdotId].original}</p>
 
-          <h3>Anecdote in translation language</h3>
-          <ul className={styles.anecdotFealdsList}>
-            <li className={styles.anecdotFealdsList__item}>
-              <h4 className={styles.anecdotFealdHeader}>Unresolved anecdot</h4>
-              <ul className={styles.listTags}>
-                {mixedArray.map((elem, id) => (
-                  <li key={id} className={styles.listTags__item}>
-                    <Button
-                      variant="primary"
-                      data-id={id}
-                      // onClick={throttle(onClickButton, 500)}
-                      onClick={onClickButton}
-                      value={elem}
-                    >
-                      {elem}
-                    </Button>
-                  </li>
-                ))}
-              </ul>
-              {resolved && (
-                <div className={styles.congratulations}>
-                  <h3>Congratulations, you're great!!!</h3>
-                  <p>Are you ready for a new test?</p>
-                  <p>Then press NEXT!</p>
-                  <Button variant="warning" onClick={onClickButtonNext}>
-                    NEXT
-                  </Button>
-                  <div className={styles.statistics}>
-                    <h5>Сurrent statistics:</h5>
-                    <p>Attempts: {attempts}</p>
-                    <p>Losts: {losts}</p>
-                  </div>
-                </div>
-              )}
-            </li>
-            <li className={styles.anecdotFealdsList__item}>
-              <h4 className={styles.anecdotFealdHeader}>Resolved anecdot</h4>
-              <ul className={styles.listTags}>
-                {resolvedArray.map((elem, id) => (
-                  <li key={id} className={styles.listTags__item}>
-                    <Button variant="primary">{elem}</Button>
-                  </li>
-                ))}
-              </ul>
-            </li>
+      <h3>Anecdot in translation language</h3>
+      <ul className={styles.anecdotFealdsList}>
+        <li className={styles.anecdotFealdsList__item}>
+          <h4 className={styles.anecdotFealdHeader}>Unresolved anecdot</h4>
+          {!anecdotesList[anecdotId].translation && (
+            <h3 className={styles.warning}>no translation available</h3>
+          )}
+          <ul className={styles.listTags}>
+            {mixedArray.map((elem, id) => (
+              <li key={id} className={styles.listTags__item}>
+                <Button
+                  variant="primary"
+                  data-id={id}
+                  // onClick={throttle(onClickButton, 500)}
+                  onClick={onClickButton}
+                  value={elem}
+                >
+                  {elem}
+                </Button>
+              </li>
+            ))}
           </ul>
-        </div>
-      )}
+          {resolved && (
+            <div className={styles.congratulations}>
+              <h3>Congratulations, you're great!!!</h3>
+              <p>Are you ready for a new test?</p>
+              <p>Then press NEXT!</p>
+              <Button variant="warning" onClick={onClickButtonNext}>
+                NEXT
+              </Button>
+              <div className={styles.statistics}>
+                <h5>Сurrent statistics:</h5>
+                <p>Attempts: {attempts}</p>
+                <p>Losts: {losts}</p>
+              </div>
+            </div>
+          )}
+        </li>
+        <li className={styles.anecdotFealdsList__item}>
+          <h4 className={styles.anecdotFealdHeader}>Resolved anecdot</h4>
+          <ul className={styles.listTags}>
+            {resolvedArray.map((elem, id) => (
+              <li key={id} className={styles.listTags__item}>
+                <Button variant="primary">{elem}</Button>
+              </li>
+            ))}
+          </ul>
+        </li>
+      </ul>
     </div>
   );
 }
+
+AnecdotesTrainings.propTypes = {
+  anecdotesList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      original: PropTypes.string.isRequired,
+      translation: PropTypes.string.isRequired,
+    }),
+  ),
+};

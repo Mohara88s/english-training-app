@@ -1,9 +1,6 @@
 .anecdotFealdsList {
   padding-left: 0;
 }
-.warning {
-  color: red;
-}
 .anecdotFealdsList__item {
   min-height: 250px;
   margin-right: 5px;
@@ -47,4 +44,7 @@
   display: flex;
   justify-content: space-between;
   padding: 5px;
+}
+.warning {
+  color: red;
 }

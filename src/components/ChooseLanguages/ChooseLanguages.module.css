@@ -1,0 +1,11 @@
+.languagesList {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 0;
+}
+@media screen and (min-width: 720px) {
+  .ChooseLanguagesList {
+    display: flex;
+    justify-content: space-around;
+  }
+}
