@@ -1,3 +1,20 @@
 .HomePage {
   padding: 20px;
 }
+.LinksList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.LinksList__item {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.LinksList__name {
+  position: absolute;
+  left: 20px;
+}
+.LinksList__picture {
+  max-width: 100%;
+}
