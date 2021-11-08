@@ -1,0 +1,2 @@
+(this["webpackJsonpenglish-training-app"]=this["webpackJsonpenglish-training-app"]||[]).push([[6],{65:function(n,e,i){},67:function(n,e,i){"use strict";i.r(e),i.d(e,"default",(function(){return c}));var t=i(65),s=i.n(t),a=i(1);function c(){return Object(a.jsx)("div",{className:s.a.HomePage,children:Object(a.jsx)("h2",{children:"under development"})})}}}]);
+//# sourceMappingURL=6.93adb686.chunk.js.map
