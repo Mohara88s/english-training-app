@@ -47,7 +47,10 @@ export default function SentencesTrainingsPage() {
           translation: e.translation,
         };
       })
-      .filter(e => e.original.length > 30);
+      .filter(e => e.original.length > 30)
+      .sort(() => {
+        return 0.5 - Math.random();
+      });
     setSentencesList([...normalizeList]);
   }, [sentencesNoIdList]);
 

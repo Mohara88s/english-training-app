@@ -1,9 +1,11 @@
-import Navigation from '../Navigation/Navigation';
+import DisplayNavigation from '../DisplayNavigation/DisplayNavigation';
+import MobileNavigation from '../MobileNavigation/MobileNavigation';
 
 export default function Appbar() {
   return (
     <header>
-      <Navigation />
+      <DisplayNavigation />
+      <MobileNavigation />
     </header>
   );
 }

@@ -16,7 +16,7 @@ export default function TranscriptionTrainings({ wordsArr }) {
 
   useEffect(() => {
     if (wordsArr[wordId].qt) {
-      setOriginalArray([...wordsArr[wordId].qt.split('')]);
+      setOriginalArray([...wordsArr[wordId].qt]);
     }
   }, [wordId, wordsArr]);
 

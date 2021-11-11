@@ -9,13 +9,17 @@ export default function AnecdotesTrainingsPage() {
   const [anecdotesList, setAnecdotesList] = useState([]);
 
   const onLanguageChange = (originalLanguage, translationLanguage) => {
-    const list = [...data].map(e => {
-      return {
-        id: e.id,
-        original: e[`${originalLanguage}`],
-        translation: e[`${translationLanguage}`],
-      };
-    });
+    const list = [...data]
+      .map(e => {
+        return {
+          id: e.id,
+          original: e[`${originalLanguage}`],
+          translation: e[`${translationLanguage}`],
+        };
+      })
+      .sort(() => {
+        return 0.5 - Math.random();
+      });
     setAnecdotesList([...list]);
   };
 

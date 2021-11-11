@@ -1,0 +1,30 @@
+@media screen and (max-width: 720px) {
+  .DisplayNavigation {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .DisplayNavigation {
+    padding: 20px;
+    box-shadow: 2px 9px 8px 0px rgba(34, 60, 80, 0.2);
+    margin-bottom: 10px;
+  }
+  .DisplayNavigationList {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .link {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .activeLink {
+    color: #0b5ed7;
+  }
+}
