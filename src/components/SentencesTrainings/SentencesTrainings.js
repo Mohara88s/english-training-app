@@ -19,17 +19,19 @@ export default function SentencesTrainings({ sentencesList }) {
       setOriginalArray([
         ...sentencesList[sentenceId].translation
           .split(' ')
-          .map(e => (e[0] === ' ' ? e.slice(1) : e)),
+          .filter(e => e.length),
       ]);
     }
   }, [sentenceId, sentencesList]);
 
   useEffect(() => {
+    console.log(originalArray);
     setMixedArray([
       ...[...originalArray].sort(() => {
         return 0.5 - Math.random();
       }),
     ]);
+    setResolvedArray([]);
   }, [originalArray]);
 
   const onClickSentenceButton = e => {

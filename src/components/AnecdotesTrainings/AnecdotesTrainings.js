@@ -30,6 +30,7 @@ export default function AnecdotesTrainings({ anecdotesList }) {
         return 0.5 - Math.random();
       }),
     ]);
+    setResolvedArray([]);
   }, [originalArray]);
 
   const onClickSentenceButton = e => {
